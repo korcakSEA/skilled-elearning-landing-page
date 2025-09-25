@@ -1,0 +1,100 @@
+@use '../components/base' as *;
+
+.content {
+  background: linear-gradient( #fff, #f0f1ff 40%);
+  padding-block: spacing(8) spacing(10);
+}
+
+.grid {
+  display: grid;
+  row-gap: spacing(4);
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: spacing(3);
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: spacing(4);
+    row-gap: spacing(7);
+  }
+
+  .content__item{
+    display: flex;
+    flex-direction: column;
+    border-radius: px-to-rem(15);
+  }
+
+  > :first-child {
+    
+    > :first-child{
+      display: none;
+      @include respond-to(tablet){
+        display: block;
+      }
+    }
+
+    .course__header {
+      background: $gradient-preset-1; // applies to "First"
+      padding: spacing(4);
+      border-radius: px-to-rem(15);
+      margin-top: -28px;
+      flex-grow: 1;
+      h2 {
+        @include text-preset-3;
+        color: $white;
+      }
+    }
+
+  }
+
+  > :not(:first-child) {
+    
+
+    img {
+      position: relative;
+      margin-left: spacing(4);
+    }
+
+    .card {
+      background-color: #fff;
+      margin-top: -28px;
+      padding-inline: spacing(4);
+      padding-block: spacing(8) spacing(5);
+      border-radius: px-to-rem(15);
+
+      display: flex;
+      flex-direction: column;
+      gap: spacing(3);
+      flex-grow: 1;
+
+      h3 {
+        @include text-preset-4;
+      }
+
+      p {
+        @include text-preset-6;
+        color: $gray;
+
+        @include respond-to(tablet) {
+          @include text-preset-5;
+          color: $gray;
+        }
+      }
+
+      a {
+        margin-top: auto;
+        text-decoration: none;
+        color: $pink-600;
+        transition: color 150ms ease-in;
+
+        &:hover {
+          color: $pink-300;
+        }
+      }
+
+    }
+
+  }
+}

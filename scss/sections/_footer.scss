@@ -1,0 +1,21 @@
+@use '../components/base' as *;
+
+footer{
+  background-color: $blue-900;
+
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: spacing(2) 0;
+    @include respond-to(tablet) {
+      padding: spacing(3) 0;
+    }
+    // nav-logo class defined in commons.scss
+
+    // Button send parameters: background color, text color, hover background color, border (default: none)
+    .nav-button{
+      @include button($gradient-preset-2, $white, $gradient-preset-2-light);
+    }
+  }
+}

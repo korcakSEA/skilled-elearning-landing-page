@@ -1,0 +1,66 @@
+@use '../components/base' as *;
+
+
+
+.hero {
+
+  padding-block: spacing(8);
+  display: grid;
+  place-items: center;
+  gap: spacing(6);
+
+  @include respond-to(tablet) {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    gap: spacing(3);
+  }
+
+  @include respond-to(desktop) {
+    gap: spacing(4);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    @include respond-to(tablet){
+      padding-block: spacing(4.5);
+    }
+      @include respond-to(desktop){
+      padding-block: spacing(14.5);
+    }
+
+  }
+
+  &__header {
+    @include text-preset-1;
+  }
+
+  &__text {
+    @include text-preset-5;
+    max-width: 35ch;
+    color: $gray;
+    margin-block: spacing(3) spacing(5);
+  }
+
+  &__button {
+    @include button($gradient-preset-1, $white, $gradient-preset-1-light);
+  }
+
+  picture {
+    @include respond-to(tablet) {
+      max-width: none;
+      position: absolute;
+      right: 0;
+      translate: 40% -11%;
+      pointer-events: none;
+    }
+
+    @include respond-to(desktop) {
+      translate: 47% -14%;
+      max-width: px-to-rem(1040);
+    }
+  }
+
+}

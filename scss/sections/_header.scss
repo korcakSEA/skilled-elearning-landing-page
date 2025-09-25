@@ -1,0 +1,19 @@
+@use '../components/base' as *;
+
+header{
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: spacing(2) 0;
+    @include respond-to(tablet) {
+      padding: spacing(3) 0;
+    }
+
+    // nav-logo class defined in commons.scss
+
+    .nav-button{
+      @include button($gradient-preset-3, $white,$gradient-preset-3-light);
+    }
+  }
+}

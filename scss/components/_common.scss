@@ -1,0 +1,103 @@
+@use './typography' as t;
+@use './mixins' as m;
+
+
+@mixin button($bg-color, $text-color, $hover-bg, $border: none, ) {
+  // Basic button styles
+  @include t.text-preset-7;
+  background-image: $bg-color;
+  color: $text-color;
+  border: $border;
+  padding: m.spacing(1.5) m.spacing(3);
+
+  @include m.respond-to(desktop) {
+    padding: m.spacing(2) m.spacing(4);
+  }
+
+  border-radius: m.px-to-rem(28);
+  cursor: pointer;
+  // transition: all 0.3s ease-in;
+
+  /* To position pseudo element */
+  position: relative;
+  /* To position correctly we will use flex layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* As transition does not work on background property with linear-gradient values, we will create pseudo element */
+  /* Pseudo element is always relatively oriented button element */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // Must be same as we will hide pseudo element behind the button
+    border-radius: m.px-to-rem(28);
+    opacity: 0;
+    /* to display linear-gradient we use background-image property */
+    background-image: $hover-bg;
+    /* To place it behind the button */
+    z-index: -1;
+    // for opacity transition, so we can have smooth transition effect
+    transition: opacity 0.3s ease-in;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+  }
+
+  &:hover {
+    z-index: 0;
+  }
+
+}
+
+// Element styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+main {
+  overflow-x: clip;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Global Styles
+.wrapper {
+  padding-inline: m.px-to-rem(20);
+
+  @include m.respond-to(tablet) {
+    padding-inline: m.px-to-rem(44);
+  }
+
+  @include m.respond-to(desktop) {
+    max-width: m.px-to-rem(1120);
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+}
+
+.nav-logo {
+  width: m.px-to-rem(79.29);
+
+  @include m.respond-to(desktop) {
+    width: m.px-to-rem(111);
+  }
+
+  height: auto;
+  display: block;
+}

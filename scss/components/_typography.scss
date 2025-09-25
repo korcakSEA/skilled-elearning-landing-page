@@ -1,0 +1,87 @@
+@use './mixins' as m;
+
+
+// Colors
+
+$white: hsl(0, 0%, 100%);
+$gray: hsl(232, 10%, 56%);
+$black: hsl(0, 0%, 0%);
+
+$blue-400: hsl(237, 100%, 64%);
+$blue-400-light: hsla(237, 100%, 64%, 0.5);
+$blue-600: hsl(234, 25%, 52%);
+$blue-900: hsl(233, 54%, 16%);
+
+$pink-300: hsl(341, 100%, 83%); // light
+$pink-600: hsl(341, 92%, 62%);  // main
+
+
+$gradient-preset-1: linear-gradient(to top, hsl(322, 87%, 55%), hsl(13, 100%, 64%));
+$gradient-preset-1-light: linear-gradient(to top, hsl(322, 87%, 75%), hsl(13, 100%, 84%));
+$gradient-preset-2: linear-gradient(to bottom, hsl(237, 100%, 64%), hsl(322, 87%, 55%));
+$gradient-preset-2-light: linear-gradient(to bottom, hsl(237, 100%, 82%), hsl(322, 87%, 78%));
+$gradient-preset-3: linear-gradient(hsl(233, 54%, 16%));
+$gradient-preset-3-light: linear-gradient(hsl(234, 25%, 52%));
+
+// Typography
+
+/* plus-jakarta-sans-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../fonts/plus-jakarta-sans-v12-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* plus-jakarta-sans-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../fonts/plus-jakarta-sans-v12-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* plus-jakarta-sans-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../../fonts/plus-jakarta-sans-v12-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@mixin text-style($size, $weight, $height, $letterSpacing, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $letterSpacing;
+  color: $color;
+}
+
+@mixin text-preset-1{
+  @include text-style(clamp(m.px-to-rem(40),2rem + 1.05vw,m.px-to-rem(56)), 800, 1.2, 0, $blue-900);
+}
+
+@mixin text-preset-2{
+  @include text-style(m.px-to-rem(40), 800, 1.2, 0, $blue-900);
+}
+
+@mixin text-preset-3{
+  @include text-style(clamp(m.px-to-rem(20),1rem + 1.05vw,m.px-to-rem(32)), 800, 1.2, 0, $blue-900);
+}
+
+@mixin text-preset-4{
+  @include text-style(clamp(m.px-to-rem(20),1rem + 0.5vw,m.px-to-rem(24)), 800, 1.2, 0, $blue-900);
+}
+
+@mixin text-preset-5{
+  @include text-style(m.px-to-rem(18), 500, 1.5, 0, $blue-900);
+}
+
+@mixin text-preset-6{
+  @include text-style(m.px-to-rem(16), 700, 1.5, 0, $blue-900);
+}
+
+@mixin text-preset-7{
+  @include text-style(m.px-to-rem(18), 700, 1.5, 0, $blue-900);
+}

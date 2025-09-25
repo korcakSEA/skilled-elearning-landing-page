@@ -1,0 +1,408 @@
+/* plus-jakarta-sans-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../fonts/plus-jakarta-sans-v12-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* plus-jakarta-sans-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../fonts/plus-jakarta-sans-v12-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* plus-jakarta-sans-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../../fonts/plus-jakarta-sans-v12-latin-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+main {
+  overflow-x: clip;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .wrapper {
+    padding-inline: 2.75rem;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper {
+    max-width: 70rem;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+}
+
+.nav-logo {
+  width: 4.955625rem;
+}
+@media (min-width: 1200px) {
+  .nav-logo {
+    width: 6.9375rem;
+  }
+}
+.nav-logo {
+  height: auto;
+  display: block;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+@media (min-width: 768px) {
+  header nav {
+    padding: 1.5rem 0;
+  }
+}
+header nav .nav-button {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: hsl(233, 54%, 16%);
+  background-image: linear-gradient(hsl(233, 54%, 16%));
+  color: hsl(0, 0%, 100%);
+  border: none;
+  padding: 0.75rem 1.5rem;
+}
+@media (min-width: 1200px) {
+  header nav .nav-button {
+    padding: 1rem 2rem;
+  }
+}
+header nav .nav-button {
+  border-radius: 1.75rem;
+  cursor: pointer;
+  /* To position pseudo element */
+  position: relative;
+  /* To position correctly we will use flex layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* As transition does not work on background property with linear-gradient values, we will create pseudo element */
+  /* Pseudo element is always relatively oriented button element */
+}
+header nav .nav-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.75rem;
+  opacity: 0;
+  /* to display linear-gradient we use background-image property */
+  background-image: linear-gradient(hsl(234, 25%, 52%));
+  /* To place it behind the button */
+  z-index: -1;
+  transition: opacity 0.3s ease-in;
+}
+header nav .nav-button:hover::after, header nav .nav-button:focus::after {
+  opacity: 1;
+}
+header nav .nav-button:hover {
+  z-index: 0;
+}
+
+.hero {
+  padding-block: 4rem;
+  display: grid;
+  place-items: center;
+  gap: 3rem;
+}
+@media (min-width: 768px) {
+  .hero {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .hero {
+    gap: 2rem;
+  }
+}
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .hero__content {
+    padding-block: 2.25rem;
+  }
+}
+@media (min-width: 1200px) {
+  .hero__content {
+    padding-block: 7.25rem;
+  }
+}
+.hero__header {
+  font-size: clamp(2.5rem, 2rem + 1.05vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: hsl(233, 54%, 16%);
+}
+.hero__text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: hsl(233, 54%, 16%);
+  max-width: 35ch;
+  color: hsl(232, 10%, 56%);
+  margin-block: 1.5rem 2.5rem;
+}
+.hero__button {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: hsl(233, 54%, 16%);
+  background-image: linear-gradient(to top, hsl(322, 87%, 55%), hsl(13, 100%, 64%));
+  color: hsl(0, 0%, 100%);
+  border: none;
+  padding: 0.75rem 1.5rem;
+}
+@media (min-width: 1200px) {
+  .hero__button {
+    padding: 1rem 2rem;
+  }
+}
+.hero__button {
+  border-radius: 1.75rem;
+  cursor: pointer;
+  /* To position pseudo element */
+  position: relative;
+  /* To position correctly we will use flex layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* As transition does not work on background property with linear-gradient values, we will create pseudo element */
+  /* Pseudo element is always relatively oriented button element */
+}
+.hero__button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.75rem;
+  opacity: 0;
+  /* to display linear-gradient we use background-image property */
+  background-image: linear-gradient(to top, hsl(322, 87%, 75%), hsl(13, 100%, 84%));
+  /* To place it behind the button */
+  z-index: -1;
+  transition: opacity 0.3s ease-in;
+}
+.hero__button:hover::after, .hero__button:focus::after {
+  opacity: 1;
+}
+.hero__button:hover {
+  z-index: 0;
+}
+@media (min-width: 768px) {
+  .hero picture {
+    max-width: none;
+    position: absolute;
+    right: 0;
+    translate: 40% -11%;
+    pointer-events: none;
+  }
+}
+@media (min-width: 1200px) {
+  .hero picture {
+    translate: 47% -14%;
+    max-width: 65rem;
+  }
+}
+
+.content {
+  background: linear-gradient(#fff, #f0f1ff 40%);
+  padding-block: 4rem 5rem;
+}
+
+.grid {
+  display: grid;
+  row-gap: 2rem;
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    row-gap: 3.5rem;
+  }
+}
+.grid .content__item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.9375rem;
+}
+.grid > :first-child > :first-child {
+  display: none;
+}
+@media (min-width: 768px) {
+  .grid > :first-child > :first-child {
+    display: block;
+  }
+}
+.grid > :first-child .course__header {
+  background: linear-gradient(to top, hsl(322, 87%, 55%), hsl(13, 100%, 64%));
+  padding: 2rem;
+  border-radius: 0.9375rem;
+  margin-top: -28px;
+  flex-grow: 1;
+}
+.grid > :first-child .course__header h2 {
+  font-size: clamp(1.25rem, 1rem + 1.05vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: hsl(233, 54%, 16%);
+  color: hsl(0, 0%, 100%);
+}
+.grid > :not(:first-child) img {
+  position: relative;
+  margin-left: 2rem;
+}
+.grid > :not(:first-child) .card {
+  background-color: #fff;
+  margin-top: -28px;
+  padding-inline: 2rem;
+  padding-block: 4rem 2.5rem;
+  border-radius: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-grow: 1;
+}
+.grid > :not(:first-child) .card h3 {
+  font-size: clamp(1.25rem, 1rem + 0.5vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: hsl(233, 54%, 16%);
+}
+.grid > :not(:first-child) .card p {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: hsl(233, 54%, 16%);
+  color: hsl(232, 10%, 56%);
+}
+@media (min-width: 768px) {
+  .grid > :not(:first-child) .card p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: hsl(233, 54%, 16%);
+    color: hsl(232, 10%, 56%);
+  }
+}
+.grid > :not(:first-child) .card a {
+  margin-top: auto;
+  text-decoration: none;
+  color: hsl(341, 92%, 62%);
+  transition: color 150ms ease-in;
+}
+.grid > :not(:first-child) .card a:hover {
+  color: hsl(341, 100%, 83%);
+}
+
+footer {
+  background-color: hsl(233, 54%, 16%);
+}
+footer nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+@media (min-width: 768px) {
+  footer nav {
+    padding: 1.5rem 0;
+  }
+}
+footer nav .nav-button {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: hsl(233, 54%, 16%);
+  background-image: linear-gradient(to bottom, hsl(237, 100%, 64%), hsl(322, 87%, 55%));
+  color: hsl(0, 0%, 100%);
+  border: none;
+  padding: 0.75rem 1.5rem;
+}
+@media (min-width: 1200px) {
+  footer nav .nav-button {
+    padding: 1rem 2rem;
+  }
+}
+footer nav .nav-button {
+  border-radius: 1.75rem;
+  cursor: pointer;
+  /* To position pseudo element */
+  position: relative;
+  /* To position correctly we will use flex layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* As transition does not work on background property with linear-gradient values, we will create pseudo element */
+  /* Pseudo element is always relatively oriented button element */
+}
+footer nav .nav-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.75rem;
+  opacity: 0;
+  /* to display linear-gradient we use background-image property */
+  background-image: linear-gradient(to bottom, hsl(237, 100%, 82%), hsl(322, 87%, 78%));
+  /* To place it behind the button */
+  z-index: -1;
+  transition: opacity 0.3s ease-in;
+}
+footer nav .nav-button:hover::after, footer nav .nav-button:focus::after {
+  opacity: 1;
+}
+footer nav .nav-button:hover {
+  z-index: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
