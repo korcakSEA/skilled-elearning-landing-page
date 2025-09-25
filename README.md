@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: (https://github.com/korcakSEA/skilled-elearning-landing-page.git)
-- Live Site URL: (https://your-live-site-url.com)
+- Live Site URL: (https://korcaksea.github.io/skilled-elearning-landing-page/)
 
 ## My process
 
